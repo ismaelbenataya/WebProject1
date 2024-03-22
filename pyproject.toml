@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "webproject"
+version = "0.1.0"
+description = ""
+authors = ["ismaelbenataya <73637912+ismaelbenataya@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.0.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
