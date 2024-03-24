@@ -10,7 +10,7 @@ Hi {{ user.username }}!
   <button type="submit">Log Out</button>
 </form>
 {% else %}
-<p>You are not logged in</p>
+<p>You are not logged in the website</p>
 <a href="{% url 'login' %}">Log In</a> <!-- We can now add a link to the login page here -->
 <a href="{% url 'signup' %}">Sign Up</a> <!-- We can now add a link to the signup page here -->
 {% endif %}
