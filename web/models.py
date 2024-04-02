@@ -3,35 +3,30 @@ from django.db import models
 # This is an example of a model in Django so that you can see how you can define your own models :D
 # DON'T FORGET to run `python manage.py makemigrations` and `python manage.py migrate` after changing this file!!!
 
-class Author(models.Model):
-    name = models.CharField(max_length=100)
-    birth_date = models.DateField()
+
+class Transport(models.Model):
+    id_transport = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
-        return self.name
+        return self.identification
 
-class Publisher(models.Model):
-    name = models.CharField(max_length=200)
-    founded = models.DateField()
-    city = models.CharField(max_length=60)
+class Passenger(models.Model):
+    num_identification = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
-        return self.name
+        return self.num_identification
 
-class Book(models.Model):
-    title = models.CharField(max_length=200)
-    publication_date = models.DateField()
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    genre = models.CharField(max_length=100)
-    publishers = models.ManyToManyField(Publisher, related_name='books')
+class Ticket(models.Model):
+    num_ticket = models.CharField(max_length=100, unique=True)
+    transport = models.ForeignKey(Transport, on_delete=models.CASCADE)
+    passenger = models.ForeignKey(Passenger, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.title
+        return self.num_ticket
 
-class Review(models.Model):
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
-    review_text = models.TextField()
-    rating = models.IntegerField()
+class Pollution(models.Model):
+    pollution = models.FloatField()
+    transport = models.ForeignKey(Transport, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.book.title} - {self.rating}/10"
+        return f"{self.transport.id_transport} - Pollution Index: {self.pollution}"

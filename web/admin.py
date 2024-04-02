@@ -2,9 +2,9 @@ from django.contrib import admin
 
 # This is how you can register your models with the Django admin so that you can manage them from the admin interface
 
-from .models import Author, Publisher, Book, Review
+from .models import Transport, Passenger, Ticket, Pollution
 
-admin.site.register(Author)
-admin.site.register(Publisher)
-admin.site.register(Book)
-admin.site.register(Review)
+admin.site.register(Transport)
+admin.site.register(Passenger)
+admin.site.register(Ticket)
+admin.site.register(Pollution)
